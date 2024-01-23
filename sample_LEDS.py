@@ -19,29 +19,30 @@ strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
 led_off = Color(0, 0, 0)
 red = Color(255, 0, 0)
 blue = Color(30, 144, 255)
-green = Color(50, 205, 50)
+green = Color(30, 254, 0)
 yellow = Color(254, 224, 0)
 #some led colors. you can change this to anything that you want to.
 
 print ("Turning on LEDs, press Ctrl+C to turn them off")
+while True:
+    try:
+        strip.begin()
+        #start configuring LEDs. Only need to do it once
+        
+        strip.setPixelColor(0,red)
+        strip.setPixelColor(1, green)
+        strip.setPixelColor(2, blue)
+        strip.setPixelColor(3, yellow)
+        #set colors for each LEDs. They are reffered as elements in an array where first is at index 0
+        
+        strip.show()
+        #Turn on the LEDs
 
-try:
-    strip.begin()
-    #start configuring LEDs. Only need to do it once
-    
-    strip.setPixelColor(0,red)
-    strip.setPixelColor(1, green)
-    strip.setPixelColor(2, blue)
-    strip.setPixelColor(3, yellow)
-    #set colors for each LEDs. They are reffered as elements in an array where first is at index 0
-    
-    strip.show()
-    #Turn on the LEDs
+    except KeyboardInterrupt:
+        print("Turning off LEDs")
 
-except KeyboardInterrupt:
-    print("Turning off LEDs")
-
-    # for loop to set all LEDs to turn off
-    for i in range(strip.numPixels())
-        strip.setPixelColor(i,led_off)
-    strip.show()
+        # for loop to set all LEDs to turn off
+        for i in range(strip.numPixels()):
+            strip.setPixelColor(i,led_off)
+        strip.show()
+        break
