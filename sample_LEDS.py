@@ -24,10 +24,11 @@ yellow = Color(254, 224, 0)
 #some led colors. you can change this to anything that you want to.
 
 print ("Turning on LEDs, press Ctrl+C to turn them off")
+strip.begin()
+#start configuring LEDs. Only need to do it once
+        
 while True:
     try:
-        strip.begin()
-        #start configuring LEDs. Only need to do it once
         
         strip.setPixelColor(0,red)
         strip.setPixelColor(1, green)
