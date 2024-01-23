@@ -1,6 +1,6 @@
 import time
 
-from rpi_ws281 import Adafruit_NeoPixel, Color
+from rpi_ws281x import Adafruit_NeoPixel, Color
 
 #if you get library missing error, run this command: sudo pip install rpi_ws281x on your terminal
 
