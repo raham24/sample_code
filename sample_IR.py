@@ -18,15 +18,15 @@ try: # catch runtime error in the block of code inside try
                 DL_status = GPIO.input(DL)
 
                 if DR_status == 0 or DL_status == 0:
-                        Ab.stop()
-                        if DR_status == 0: #if the right sensor reads 0, move left
-                                print("Object on right, moving left")
+                        if DR_status == 0 and DL_status != 0: #if the right sensor reads 0, move left
+                                print("Object on right")
+                                time.sleep(0.1)                                
+                        elif DL_status == 0 and DR_status != 0: #if the left sensor reads 0, move right
+                                print("Object on left")
                                 time.sleep(0.1)
-                                
-                        if DL_status == 0: #if the left sensor reads 0, move right
-                                print("Object on left, moving right")
+                        elif DL_status == 0 and DR_status == 0:
+                                print("Object in the center")
                                 time.sleep(0.1)
-                                
 
 except KeyboardInterrupt:
         print("Exiting.....")
