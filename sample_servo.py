@@ -25,16 +25,16 @@ def initialize_servos():
 def test():
     # testing function for the servo
 
-    for i in range(num_serv):
-        for j in range(min_angle, max_angle[i], 1):
+    for i in range(num_serv): # external for loop, goes through all the servos
+        for j in range(min_angle, max_angle[i], 1): # internal for loop #1, moves the servo from min to max angle
             print(f"Set angle {j} for servo {i}")
             pca.servo[i].angle = j
             time.sleep(0.5)
-        for j in range(max_angle[i], min_angle, -1):
+        for j in range(max_angle[i], min_angle, -1): # internal for loop #2, moves the servo from max to min angle
             print(f"Set angle {j} for servo {i}")
             pca.servo[i].angle = j
             time.sleep(0.5)
-        pca.servo[i].angle = None
+        pca.servo[i].angle = None # VERY IMPORTANT. Make sure to use this to avoid any excess power usage
         time.sleep(1)
     
 if __name__ == '__main__':
