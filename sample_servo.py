@@ -40,3 +40,5 @@ def test():
 if __name__ == '__main__':
     initialize_servos()
     test()
+    print("Test Complete")
+    GPIO.cleanup()
