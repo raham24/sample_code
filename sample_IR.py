@@ -18,13 +18,13 @@ try: # catch runtime error in the block of code inside try
                 DL_status = GPIO.input(DL)
 
                 if DR_status == 0 or DL_status == 0:
-                        if DR_status == 0 and DL_status != 0: #if the right sensor reads 0, move left
+                        if DR_status == 0 and DL_status != 0: #something is on the right
                                 print("Object on right")
                                 time.sleep(0.1)                                
-                        elif DL_status == 0 and DR_status != 0: #if the left sensor reads 0, move right
+                        elif DL_status == 0 and DR_status != 0: #something is on the left
                                 print("Object on left")
                                 time.sleep(0.1)
-                        elif DL_status == 0 and DR_status == 0:
+                        elif DL_status == 0 and DR_status == 0: #something in the center
                                 print("Object in the center")
                                 time.sleep(0.1)
 
