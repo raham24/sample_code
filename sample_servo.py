@@ -1,4 +1,4 @@
-from adafruit_servokit import servokit
+from adafruit_servokit import ServoKit
 import time
 import RPi.GPIO as GPIO
 
@@ -15,7 +15,7 @@ max_angle = [180,120] # different max angle for different servos
              
 num_serv = 2 # number of servos controlled by the controller
 
-pca = servokit(channels = 16) # declare our controller and the channels (we have 16 channel)
+pca = ServoKit(channels = 16) # declare our controller and the channels (we have 16 channel)
 
 def initialize_servos(): 
     # this function is used to ser max and min vals for impulse and each servo
